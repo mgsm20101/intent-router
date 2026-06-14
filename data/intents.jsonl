@@ -1,0 +1,96 @@
+{"text": "Hi there!", "label": "greeting"}
+{"text": "Hello, good morning", "label": "greeting"}
+{"text": "Hey, how are you?", "label": "greeting"}
+{"text": "Good evening", "label": "greeting"}
+{"text": "Hi, anyone online?", "label": "greeting"}
+{"text": "Greetings", "label": "greeting"}
+{"text": "السلام عليكم", "label": "greeting"}
+{"text": "صباح الخير", "label": "greeting"}
+{"text": "أهلاً، إزيكم؟", "label": "greeting"}
+{"text": "مرحبا", "label": "greeting"}
+{"text": "هاي، في حد موجود؟", "label": "greeting"}
+{"text": "مساء الخير", "label": "greeting"}
+{"text": "I was charged twice this month", "label": "billing_issue"}
+{"text": "My invoice amount looks wrong", "label": "billing_issue"}
+{"text": "Why was I billed 99 instead of 49?", "label": "billing_issue"}
+{"text": "The payment failed but money was taken", "label": "billing_issue"}
+{"text": "There is an extra charge on my card", "label": "billing_issue"}
+{"text": "My bill is higher than my plan", "label": "billing_issue"}
+{"text": "اتخصم مني المبلغ مرتين الشهر ده", "label": "billing_issue"}
+{"text": "الفاتورة غلط ومش مظبوطة", "label": "billing_issue"}
+{"text": "ليه اتحاسبت 99 بدل 49؟", "label": "billing_issue"}
+{"text": "الدفع فشل بس الفلوس اتخصمت", "label": "billing_issue"}
+{"text": "في رسوم زيادة على الكارت", "label": "billing_issue"}
+{"text": "الفاتورة أعلى من باقتي", "label": "billing_issue"}
+{"text": "The app keeps crashing on launch", "label": "technical_support"}
+{"text": "I can't log in to my account", "label": "technical_support"}
+{"text": "I get a 500 error when I save", "label": "technical_support"}
+{"text": "The page won't load", "label": "technical_support"}
+{"text": "Upload button does nothing", "label": "technical_support"}
+{"text": "Export feature is broken", "label": "technical_support"}
+{"text": "التطبيق بيقفل أول ما يفتح", "label": "technical_support"}
+{"text": "مش قادر أعمل لوجين", "label": "technical_support"}
+{"text": "بييجي إيرور 500 لما بحفظ", "label": "technical_support"}
+{"text": "الصفحة مش بتفتح", "label": "technical_support"}
+{"text": "زرار الرفع مش شغال", "label": "technical_support"}
+{"text": "خاصية التصدير باظت", "label": "technical_support"}
+{"text": "I want to cancel my subscription", "label": "cancel_subscription"}
+{"text": "Please stop my plan", "label": "cancel_subscription"}
+{"text": "How do I end my membership?", "label": "cancel_subscription"}
+{"text": "Cancel my account renewal", "label": "cancel_subscription"}
+{"text": "I'd like to terminate the service", "label": "cancel_subscription"}
+{"text": "Stop charging me, cancel it", "label": "cancel_subscription"}
+{"text": "عايز ألغي اشتراكي", "label": "cancel_subscription"}
+{"text": "من فضلك أوقف الباقة", "label": "cancel_subscription"}
+{"text": "إزاي ألغي العضوية؟", "label": "cancel_subscription"}
+{"text": "ألغوا تجديد الحساب", "label": "cancel_subscription"}
+{"text": "عايز أنهي الخدمة", "label": "cancel_subscription"}
+{"text": "بطلوا تخصموا، ألغوا الاشتراك", "label": "cancel_subscription"}
+{"text": "I want a refund for last month", "label": "refund_request"}
+{"text": "Can I get my money back?", "label": "refund_request"}
+{"text": "Please refund the duplicate charge", "label": "refund_request"}
+{"text": "I need a refund, the product didn't work", "label": "refund_request"}
+{"text": "Refund me for the annual plan", "label": "refund_request"}
+{"text": "I'd like my payment returned", "label": "refund_request"}
+{"text": "عايز استرجاع فلوس الشهر اللي فات", "label": "refund_request"}
+{"text": "ممكن ترجعولي فلوسي؟", "label": "refund_request"}
+{"text": "رجّعوا الرسوم المكررة", "label": "refund_request"}
+{"text": "محتاج ريفاند، المنتج مشتغلش", "label": "refund_request"}
+{"text": "استرجعوا مبلغ الباقة السنوية", "label": "refund_request"}
+{"text": "عايز فلوسي ترجع", "label": "refund_request"}
+{"text": "Your support is terrible", "label": "complaint"}
+{"text": "I'm very disappointed with the service", "label": "complaint"}
+{"text": "This is the worst experience ever", "label": "complaint"}
+{"text": "Nobody answers my tickets", "label": "complaint"}
+{"text": "I'm unhappy with how slow you are", "label": "complaint"}
+{"text": "Really bad service quality", "label": "complaint"}
+{"text": "الدعم بتاعكم سيء جداً", "label": "complaint"}
+{"text": "أنا متضايق جداً من الخدمة", "label": "complaint"}
+{"text": "أسوأ تجربة على الإطلاق", "label": "complaint"}
+{"text": "محدش بيرد على التذاكر", "label": "complaint"}
+{"text": "مش راضي عن البطء بتاعكم", "label": "complaint"}
+{"text": "جودة الخدمة وحشة فعلاً", "label": "complaint"}
+{"text": "Do you offer a team plan?", "label": "product_inquiry"}
+{"text": "What features are in the pro tier?", "label": "product_inquiry"}
+{"text": "How much is the yearly subscription?", "label": "product_inquiry"}
+{"text": "Is there a free trial?", "label": "product_inquiry"}
+{"text": "Does it integrate with Slack?", "label": "product_inquiry"}
+{"text": "What's the difference between plans?", "label": "product_inquiry"}
+{"text": "عندكم باقة للفرق؟", "label": "product_inquiry"}
+{"text": "إيه المميزات في باقة البرو؟", "label": "product_inquiry"}
+{"text": "بكام الاشتراك السنوي؟", "label": "product_inquiry"}
+{"text": "في فترة تجربة مجانية؟", "label": "product_inquiry"}
+{"text": "بيتكامل مع سلاك؟", "label": "product_inquiry"}
+{"text": "إيه الفرق بين الباقات؟", "label": "product_inquiry"}
+{"text": "I need to change my email", "label": "account_update"}
+{"text": "Please update my password", "label": "account_update"}
+{"text": "Change my billing address", "label": "account_update"}
+{"text": "Update the name on my account", "label": "account_update"}
+{"text": "I want to switch to the annual plan", "label": "account_update"}
+{"text": "Update my phone number", "label": "account_update"}
+{"text": "محتاج أغيّر الإيميل", "label": "account_update"}
+{"text": "من فضلك حدّثوا الباسورد", "label": "account_update"}
+{"text": "غيّروا عنوان الفوترة", "label": "account_update"}
+{"text": "حدّثوا الاسم على الحساب", "label": "account_update"}
+{"text": "عايز أحوّل للباقة السنوية", "label": "account_update"}
+{"text": "حدّثوا رقم تليفوني", "label": "account_update"}

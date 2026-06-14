@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Secrets / config
+.env
+
+# Trained model artifacts (regenerate with `python -m src.encoder_classifier.train`)
+models/
+*.safetensors
+*.bin
+
+# Note: docs/results.md IS committed — it's a portfolio artifact linked from the README.
+
+# .NET
+dotnet/**/bin/
+dotnet/**/obj/
+
+# OS / IDE
+.DS_Store
+.vs/
+.idea/
+*.user

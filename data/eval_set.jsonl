@@ -1,0 +1,32 @@
+{"text": "Hello team", "label": "greeting"}
+{"text": "Hey, just saying hi", "label": "greeting"}
+{"text": "أهلاً وسهلاً", "label": "greeting"}
+{"text": "إزي الحال؟", "label": "greeting"}
+{"text": "I got charged after I downgraded", "label": "billing_issue"}
+{"text": "Double payment on my statement", "label": "billing_issue"}
+{"text": "اتحاسبت بعد ما نزّلت الباقة", "label": "billing_issue"}
+{"text": "اتدفع مرتين في الكشف", "label": "billing_issue"}
+{"text": "Login says wrong password but it's correct", "label": "technical_support"}
+{"text": "Dashboard is stuck loading", "label": "technical_support"}
+{"text": "بيقول الباسورد غلط وهو صح", "label": "technical_support"}
+{"text": "الداشبورد واقفة بتحمّل", "label": "technical_support"}
+{"text": "End my subscription today", "label": "cancel_subscription"}
+{"text": "I no longer want the subscription", "label": "cancel_subscription"}
+{"text": "اقفل اشتراكي النهاردة", "label": "cancel_subscription"}
+{"text": "مش عايز الاشتراك تاني", "label": "cancel_subscription"}
+{"text": "Give me back the charge from yesterday", "label": "refund_request"}
+{"text": "Requesting a full refund", "label": "refund_request"}
+{"text": "رجّعوا الخصم بتاع امبارح", "label": "refund_request"}
+{"text": "بطلب استرجاع كامل", "label": "refund_request"}
+{"text": "I've been waiting for days, unacceptable", "label": "complaint"}
+{"text": "Your team is unhelpful", "label": "complaint"}
+{"text": "مستني من كذا يوم، ده مرفوض", "label": "complaint"}
+{"text": "فريقكم مش بيساعد", "label": "complaint"}
+{"text": "Can I use it offline?", "label": "product_inquiry"}
+{"text": "Do you support single sign-on?", "label": "product_inquiry"}
+{"text": "أقدر أستخدمه أوفلاين؟", "label": "product_inquiry"}
+{"text": "بتدعموا تسجيل الدخول الموحّد؟", "label": "product_inquiry"}
+{"text": "Change my account email to the new one", "label": "account_update"}
+{"text": "Upgrade me to the pro plan", "label": "account_update"}
+{"text": "غيّروا إيميل الحساب للجديد", "label": "account_update"}
+{"text": "رقّوني لباقة البرو", "label": "account_update"}
