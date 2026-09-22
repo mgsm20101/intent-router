@@ -42,24 +42,42 @@ and the code conventions the repo follows are in [`CONVENTIONS.md`](CONVENTIONS.
 
 ## Results
 
-Held-out set of 32 bilingual examples. Encoder is the fine-tuned DistilBERT on CPU; the
-LLM is `qwen2.5:7b-instruct` through Ollama, also on CPU (this box has no GPU).
+Held-out set of 32 bilingual examples, run 2026-06-14. The encoder is the fine-tuned
+DistilBERT on CPU; the LLM is `qwen2.5:7b-instruct` through Ollama.
 
-| Approach | Accuracy | Macro-F1 | p50 (ms) | p95 (ms) | Throughput (req/s) | Cost / 1k ($) |
-|----------|---------:|---------:|---------:|---------:|-------------------:|--------------:|
-| encoder  |    71.9% |    0.725 |     27.5 |     31.6 |               23.7 |        0.0006 |
-| llm      |    93.8% |    0.933 |   3592.9 |   4429.8 |                0.2 |        1.0757 |
+| Approach | Accuracy | Macro-F1 | p50 (ms) | p95 (ms) | Throughput (req/s) | Cost / 1k ($)* |
+|----------|---------:|---------:|---------:|---------:|-------------------:|---------------:|
+| encoder  |    71.9% |    0.725 |     27.5 |     31.6 |               23.7 |         0.0006 |
+| llm      |    93.8% |    0.933 |   3592.9 |   4429.8 |                0.2 |         1.0757 |
+
+\* **The cost column is modelled, not measured.** Nothing here was billed. It is
+measured latency multiplied by an assumed hourly rate for the serving box —
+`ENCODER_HOST_USD_PER_HOUR=0.05` and `LLM_HOST_USD_PER_HOUR=0.90` from
+`.env.example` (`src/eval/metrics.py:cost_per_1k`). Change the rate and the column
+changes with it. Read it as "how the latency gap would price out on those
+assumptions", never as a bill.
 
 A few things stand out:
 
 - The LLM is more accurate with no training at all (93.8% vs 71.9%). On a small set
   there just isn't enough data for the encoder to learn what the LLM already knows.
-- The encoder is roughly 130x faster and far cheaper per request (27 ms vs 3.6 s,
-  $0.0006 vs $1.08 per 1k). On CPU the 7B is slow; a GPU narrows the gap but the encoder
-  still wins on cost.
+- The encoder is roughly 130x faster per request (27 ms vs 3.6 s). The cost ratio
+  follows arithmetically from that gap and the assumed rates above; it is not an
+  independent finding.
 - Practical read: prompt to get something shipped and while data is scarce or the label
   set keeps changing; move to a fine-tuned encoder once volume is high and latency/cost
   start to matter. `docs/DESIGN.md` goes into this.
+
+### What these numbers do not establish
+
+- **32 examples.** No confidence intervals were computed. Treat 93.8% vs 71.9% as a
+  direction, not a margin — one example is 3.1 points.
+- **Device placement was not recorded.** The eval harness saves no hardware or
+  device-split metadata, so this README cannot say how much of the 7B ran on GPU. The
+  machine it was run on has an NVIDIA GTX 1050 Ti (4 GB), and Ollama does offload part
+  of a model that size into it, so "CPU-only" would be wrong — an earlier version of
+  this file said exactly that and has been corrected. The latency figures are what the
+  box produced; which unit produced them is not in the record.
 
 Regenerate the numbers any time with `python -m src.eval.run_eval`, which rewrites
 [`docs/results.md`](docs/results.md).
