@@ -20,6 +20,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 
+from src import classifiers
 from src.eval.metrics import accuracy, cost_per_1k, macro_f1, percentile
 
 load_dotenv()
@@ -103,27 +104,19 @@ def _write_markdown(results: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--only", choices=["encoder", "llm"], help="run a single approach")
+    parser.add_argument("--only", choices=classifiers.METHODS, help="run a single approach")
     args = parser.parse_args()
 
     rows = _load_eval()
     results: list[dict] = []
 
-    if args.only in (None, "encoder"):
+    for name in classifiers.METHODS:
+        if args.only not in (None, name):
+            continue
         try:
-            from src.encoder_classifier.predict import classify as encoder_classify
-
-            results.append(_run_approach("encoder", encoder_classify, rows))
+            results.append(_run_approach(name, classifiers.get(name), rows))
         except Exception as e:  # noqa: BLE001 - surface as a skipped row, don't crash the run
-            console.print(f"[yellow]Skipped encoder:[/yellow] {e}")
-
-    if args.only in (None, "llm"):
-        try:
-            from src.llm_classifier.classifier import classify as llm_classify
-
-            results.append(_run_approach("llm", llm_classify, rows))
-        except Exception as e:  # noqa: BLE001
-            console.print(f"[yellow]Skipped llm:[/yellow] {e}")
+            console.print(f"[yellow]Skipped {name}:[/yellow] {e}")
 
     if not results:
         console.print("[red]No approach ran. Train the encoder and/or start Ollama first.[/red]")

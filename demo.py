@@ -10,22 +10,19 @@ import argparse
 
 from dotenv import load_dotenv
 
+from src import classifiers
 from src.schema import Prediction
 
 
 def run(text: str, method: str) -> Prediction:
-    if method == "encoder":
-        from src.encoder_classifier.predict import classify
-    else:
-        from src.llm_classifier.classifier import classify
-    return classify(text)
+    return classifiers.get(method)(text)
 
 
 def main() -> None:
     load_dotenv()
     parser = argparse.ArgumentParser(description="Classify a support message.")
     parser.add_argument("text", help="the message to classify")
-    parser.add_argument("--method", choices=["encoder", "llm"], default="encoder")
+    parser.add_argument("--method", choices=classifiers.METHODS, default="encoder")
     args = parser.parse_args()
 
     pred = run(args.text, args.method)

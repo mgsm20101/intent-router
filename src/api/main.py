@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
+from src import classifiers
 from src.schema import LABELS
 
 load_dotenv()
@@ -40,11 +41,7 @@ def health() -> dict:
 @app.post("/classify", response_model=ClassifyResponse)
 def classify(req: ClassifyRequest) -> ClassifyResponse:
     try:
-        if req.method == "encoder":
-            from src.encoder_classifier.predict import classify as run
-        else:
-            from src.llm_classifier.classifier import classify as run
-        pred = run(req.text)
+        pred = classifiers.get(req.method)(req.text)
     except FileNotFoundError as e:
         raise HTTPException(status_code=503, detail=str(e)) from e
     except Exception as e:  # noqa: BLE001 - backend (e.g. Ollama) unreachable
