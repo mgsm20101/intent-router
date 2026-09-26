@@ -1,0 +1,8 @@
+# Test-only dependencies: no torch/transformers, no model, no Ollama.
+pytest
+scikit-learn
+fastapi
+httpx
+pydantic
+python-dotenv
+openai
