@@ -21,34 +21,34 @@ reverse. Everything depends on `schema`; `schema` depends on nothing. `schema` i
 `src/eval/metrics.py` is pure (inputs to outputs); reading files and printing happen in
 `run_eval.py`. A calculation that also prints and reads files is hard to test and reuse.
 
-**11. One reason to change per module (SRP).** `prompts.py` holds text, `classifier.py` makes
+**5. One reason to change per module (SRP).** `prompts.py` holds text, `classifier.py` makes
 the call, `metrics.py` computes. One file doing prompt + call + metrics + printing is a
 refactor magnet.
 
 ## Behavior
 
-**5. Load lazily, cache the expensive thing.** Heavy resources load on first use, once.
+**6. Load lazily, cache the expensive thing.** Heavy resources load on first use, once.
 `@lru_cache` wraps `_load()` (the encoder) and `_client()` (the LLM client). Loading the model
 per request is a performance killer.
 
-**6. Validate at the boundary.** Never trust external input or output. `_extract_label` in the
+**7. Validate at the boundary.** Never trust external input or output. `_extract_label` in the
 LLM classifier always returns a valid label even if the model rambles; Pydantic plus a regex
 guards `method` at the API. Passing an LLM reply through unchecked blows up downstream.
 
-**9. Handle errors in the right layer.** Each layer translates failure into its own language.
+**8. Handle errors in the right layer.** Each layer translates failure into its own language.
 `predict` raises `FileNotFoundError`; the API maps that to HTTP 503 and any other failure to
 502. Don't swallow errors silently, and don't leak a raw stack trace to the client.
 
-**10. Be deterministic.** Same input, same output. `data/generate.py` has no randomness, training
+**9. Be deterministic.** Same input, same output. `data/generate.py` has no randomness, training
 uses `seed=42`, the LLM runs at `temperature=0`. Random data makes eval results unrepeatable.
 
 ## Form
 
-**7. Config, not hardcoded constants.** Hosts and keys come from the environment.
+**10. Config, not hardcoded constants.** Hosts and keys come from the environment.
 `OLLAMA_HOST`, `LLM_MODEL`, `LLM_TIMEOUT_S` are read from `.env`. A hardcoded URL breaks the
 moment the environment changes (local Ollama vs. a vLLM box).
 
-**8. Type everything.** Type hints and dataclasses document and prevent errors.
+**11. Type everything.** Type hints and dataclasses document and prevent errors.
 `from __future__ import annotations`, the `Prediction` dataclass, and typed signatures throughout.
 Passing a bare dict around means nobody knows its keys.
 
