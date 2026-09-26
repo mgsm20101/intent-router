@@ -4,7 +4,7 @@ Model: distilbert-base-multilingual-cased (~134M params). Small enough to train 
 CPU in a few minutes on this dataset, and multilingual so it handles AR and EN.
 
 Run:  python -m src.encoder_classifier.train
-Saves the model, tokenizer and label map to models/encoder/.
+Saves the model and tokenizer to models/encoder/ (the label map is in config.json).
 """
 
 from __future__ import annotations
@@ -96,7 +96,6 @@ def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     trainer.save_model(str(OUTPUT_DIR))
     tokenizer.save_pretrained(str(OUTPUT_DIR))
-    (OUTPUT_DIR / "labels.json").write_text(json.dumps(LABELS, ensure_ascii=False), encoding="utf-8")
     print(f"Saved encoder model -> {OUTPUT_DIR}")
 
 

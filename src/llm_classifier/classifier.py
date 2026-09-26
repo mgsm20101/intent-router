@@ -66,10 +66,3 @@ def classify(text: str) -> Prediction:
         latency_ms=latency_ms,
         method="llm",
     )
-
-
-if __name__ == "__main__":
-    import sys
-
-    text = " ".join(sys.argv[1:]) or "عايز ألغي اشتراكي"
-    print(classify(text))

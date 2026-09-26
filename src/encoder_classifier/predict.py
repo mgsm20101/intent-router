@@ -51,10 +51,3 @@ def classify(text: str) -> Prediction:
         latency_ms=latency_ms,
         method="encoder",
     )
-
-
-if __name__ == "__main__":
-    import sys
-
-    text = " ".join(sys.argv[1:]) or "I want to cancel my subscription"
-    print(classify(text))
