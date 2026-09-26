@@ -32,10 +32,11 @@ fixed set of eight intents. Two reasonable approaches:
 
 ## What the numbers said
 
-On this 96-example training set the LLM was more accurate than the fine-tuned encoder
-(93.8% vs 71.9%) with no training, which lines up with point 1 above: not enough data
-for the encoder yet. The encoder was about 130x faster and far cheaper per request
-(27 ms vs 3.6 s, $0.0006 vs $1.08 per 1k), which is point 3.
+The figures are in [`results.md`](results.md) (and the README's Results section, with
+its caveats); they are not repeated here. On this 96-example training set the LLM was
+more accurate than the fine-tuned encoder with no training, which lines up with point 1
+above: not enough data for the encoder yet. The encoder was two orders of magnitude
+faster, and cheaper per request on the modelled cost, which is point 3.
 
 So there's no single winner, which is the whole reason for shipping a harness rather
 than an opinion. Cold start, scarce data or a shifting taxonomy points to the prompt.
