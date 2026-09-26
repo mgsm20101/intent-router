@@ -7,10 +7,9 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Base URL of the Python FastAPI service (configurable via env / appsettings).
-var pythonApiBase = builder.Configuration["PYTHON_API_BASE"]
-    ?? Environment.GetEnvironmentVariable("PYTHON_API_BASE")
-    ?? "http://localhost:8000";
+// Base URL of the Python FastAPI service. Set in appsettings.json; an environment
+// variable PYTHON_API_BASE overrides it (configuration already reads env vars).
+var pythonApiBase = builder.Configuration["PYTHON_API_BASE"] ?? "http://127.0.0.1:8000";
 
 builder.Services.AddHttpClient("python", client =>
 {
